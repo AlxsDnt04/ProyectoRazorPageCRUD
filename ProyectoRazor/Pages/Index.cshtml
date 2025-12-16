@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Sistema de Gestión Escolar</h1>
+    <p>Bienvenido al panel de administración.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-body text-center">
+                <h2 class="card-title text-primary">👨‍🎓</h2>
+                <h3>Estudiantes</h3>
+                <p class="card-text">Gestionar alumnos, ver listados y registrar nuevos ingresos.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+                <a asp-page="/Students/Index" class="btn btn-primary w-100">Ir a Estudiantes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-success">
+            <div class="card-body text-center">
+                <h2 class="card-title text-success">📚</h2>
+                <h3>Cursos</h3>
+                <p class="card-text">Administrar materias, créditos y ofertas académicas.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+                <a asp-page="/Courses/Index" class="btn btn-success w-100">Ir a Cursos</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-warning">
+            <div class="card-body text-center">
+                <h2 class="card-title text-warning">📝</h2>
+                <h3>Inscripciones</h3>
+                <p class="card-text">Matricular alumnos en cursos y asignar calificaciones.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-center">
+                <a asp-page="/Enrollments/Index" class="btn btn-warning w-100">Ir a Inscripciones</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+﻿@page
+@model ProyectoRazor.Pages.Students.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Fecha de inscripción</th>
+            <th>Cursos</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model.Student)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => student.FirstName)</td>
+                <td>@Html.DisplayFor(modelItem => student.LastName)</td>
+                <td>@Html.DisplayFor(modelItem => student.EnrollmentDate)</td>
+                <td>
+                    <ul>
+                        @foreach (var enrollment in student.Enrollments)
+                        {
+                            <li>@enrollment.Course.Title (@enrollment.Course.Credits créditos)</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
