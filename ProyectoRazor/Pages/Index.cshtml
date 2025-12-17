@@ -5,47 +5,68 @@
 }
 
 <div class="text-center mb-5">
-    <h1 class="display-4">Sistema de Gestión Escolar</h1>
-    <p>Bienvenido al panel de administración.</p>
+    <h1 class="display-4 fw-bold">Sistema de Gestión Escolar</h1>
+    <p class="lead text-muted">Panel de administración y control académico.</p>
 </div>
 
-<div class="row">
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm border-primary">
-            <div class="card-body text-center">
-                <h2 class="card-title text-primary">👨‍🎓</h2>
-                <h3>Estudiantes</h3>
-                <p class="card-text">Gestionar alumnos, ver listados y registrar nuevos ingresos.</p>
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100 shadow border-0 hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="text-primary mb-3">
+                    <i class="bi bi-people-fill display-4"></i>
+                </div>
+                <h3 class="card-title">Estudiantes</h3>
+                <p class="card-text text-muted">Gestionar el directorio de alumnos, inscripciones y datos personales.</p>
             </div>
-            <div class="card-footer bg-transparent border-0 text-center">
-                <a asp-page="/Students/Index" class="btn btn-primary w-100">Ir a Estudiantes</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm border-success">
-            <div class="card-body text-center">
-                <h2 class="card-title text-success">📚</h2>
-                <h3>Cursos</h3>
-                <p class="card-text">Administrar materias, créditos y ofertas académicas.</p>
-            </div>
-            <div class="card-footer bg-transparent border-0 text-center">
-                <a asp-page="/Courses/Index" class="btn btn-success w-100">Ir a Cursos</a>
+            <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                <a asp-page="/Students/Index" class="btn btn-outline-primary w-100 fw-bold">
+                    <i class="bi bi-arrow-right-circle me-2"></i>Ir a Estudiantes
+                </a>
             </div>
         </div>
     </div>
 
-    <div class="col-md-4 mb-4">
-        <div class="card h-100 shadow-sm border-warning">
-            <div class="card-body text-center">
-                <h2 class="card-title text-warning">📝</h2>
-                <h3>Inscripciones</h3>
-                <p class="card-text">Matricular alumnos en cursos y asignar calificaciones.</p>
+    <div class="col-md-4">
+        <div class="card h-100 shadow border-0 hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="text-success mb-3">
+                    <i class="bi bi-journal-bookmark-fill display-4"></i>
+                </div>
+                <h3 class="card-title">Cursos</h3>
+                <p class="card-text text-muted">Administrar el catálogo de materias, asignación de créditos y detalles.</p>
             </div>
-            <div class="card-footer bg-transparent border-0 text-center">
-                <a asp-page="/Enrollments/Index" class="btn btn-warning w-100">Ir a Inscripciones</a>
+            <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                <a asp-page="/Courses/Index" class="btn btn-outline-success w-100 fw-bold">
+                    <i class="bi bi-arrow-right-circle me-2"></i>Ir a Cursos
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow border-0 hover-lift">
+            <div class="card-body text-center p-4">
+                <div class="text-warning mb-3">
+                    <i class="bi bi-card-checklist display-4"></i>
+                </div>
+                <h3 class="card-title">Inscripciones</h3>
+                <p class="card-text text-muted">Proceso de matriculación de alumnos en cursos y registro de notas.</p>
+            </div>
+            <div class="card-footer bg-transparent border-0 pb-4 px-4">
+                <a asp-page="/Enrollments/Index" class="btn btn-outline-warning w-100 fw-bold">
+                    <i class="bi bi-arrow-right-circle me-2"></i>Ir a Inscripciones
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    .hover-lift {
+        transition: transform 0.2s ease-in-out;
+    }
+    .hover-lift:hover {
+        transform: translateY(-5px);
+    }
+</style>    

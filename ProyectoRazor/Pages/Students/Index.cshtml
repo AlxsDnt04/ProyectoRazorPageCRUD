@@ -2,39 +2,68 @@
 @model ProyectoRazor.Pages.Students.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Estudiantes";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Lista de Estudiantes</h1>
+    <a asp-page="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Crear Nuevo Estudiante
+    </a>
+</div>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
+<table class="table table-hover shadow-sm p-3 mb-5 bg-white rounded">
+    <thead class="table-dark">
         <tr>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Fecha de inscripción</th>
-            <th>Cursos</th>
+            <th>Fecha Inscripción</th>
+            <th>Cursos Inscritos</th>
+            <th class="text-center">Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var student in Model.Student)
+        @foreach (var item in Model.Student) 
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => student.FirstName)</td>
-                <td>@Html.DisplayFor(modelItem => student.LastName)</td>
-                <td>@Html.DisplayFor(modelItem => student.EnrollmentDate)</td>
                 <td>
-                    <ul>
-                        @foreach (var enrollment in student.Enrollments)
-                        {
-                            <li>@enrollment.Course.Title (@enrollment.Course.Credits créditos)</li>
-                        }
-                    </ul>
+                    @Html.DisplayFor(modelItem => item.FirstName)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EnrollmentDate)
+                </td>
+                <td>
+                    @if (item.Enrollments != null && item.Enrollments.Any())
+                    {
+                        <ul class="list-unstyled mb-0">
+                            @foreach (var enrollment in item.Enrollments)
+                            {
+                                <li><small>• @enrollment.Course.Title</small></li>
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <span class="text-muted"><small>Sin cursos</small></span>
+                    }
+                </td>
+                <td class="text-center">
+                    <div class="btn-group" role="group">
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm text-white">
+                            Editar
+                        </a>
+
+                        <a asp-page="./Details" asp-route-id="@item.Id" class="btn btn-info btn-sm text-white">
+                            Detalles
+                        </a>
+
+                        <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">
+                            Borrar
+                        </a>
+                    </div>
                 </td>
             </tr>
         }
